@@ -1,6 +1,6 @@
 {
   "name": "query-path",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "helper methods to work with URL query string and pathname",
   "license": "MIT",
   "repository": "abhijeetNmishra/query-path",
@@ -27,5 +27,6 @@
   ],
   "devDependencies": {
     "lodash": "^3.10.1"
-  }
+  },
+  "tonicExampleFilename": "example.js"
 }
