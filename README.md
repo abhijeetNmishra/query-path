@@ -1,2 +1,8 @@
 # query-path
-helper method to parse url pathname and querystring
+helper methods to parse url pathname and querystring
+
+## Install
+
+```
+$ npm install --save query-path
+```

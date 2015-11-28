@@ -1,0 +1,31 @@
+{
+  "name": "query-path",
+  "version": "1.0.0",
+  "description": "helper methods to work with URL query string and pathname",
+  "license": "MIT",
+  "repository": "abhijeetNmishra/query-path",
+  "author": {
+    "name": "Abhijeet Mishra",
+    "email": "geminiabhijeet@gmail.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "browser",
+    "querystring",
+    "query",
+    "string",
+    "qs",
+    "pathname",
+    "location",
+    "encode",
+    "decode"
+  ],
+  "devDependencies": {
+    "lodash": "^3.10.1"
+  }
+}
