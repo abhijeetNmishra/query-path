@@ -1,6 +1,6 @@
 {
   "name": "query-path",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "helper methods to work with URL query string and pathname",
   "license": "MIT",
   "repository": "abhijeetNmishra/query-path",
