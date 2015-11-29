@@ -17,7 +17,7 @@ exports.pathByIndex = function(index, url) {
   if (url) {
     pathname = url;
   } else {
-    pathname = window.location.pathname;
+    pathname = (typeof window !== "undefined")?window.location.pathname:'';
   }
   pathname = _.compact(pathname.split('/'));
   if (index < pathname.length) {
@@ -26,22 +26,22 @@ exports.pathByIndex = function(index, url) {
   return retVal;
 }
 
-exports.pathByMatchingString = function(matchingString, url) {
-    var pathname = '';
-    var retVal = [];
-    if (url) {
-      pathname = url;
-    } else {
-      pathname = window.location.pathname;
-    }
-    pathname = _.compact(pathname.split('/'));
-    if (matchingString && !_.isEmpty(pathname) {
-        _.each(pathname, function(val, i) {
-          if (val.indexOf(matchingString) >= 0) {
-            retVal.push[val];
-          }
-        });
+exports.pathByRegex = function(matchingString, url) {
+  var pathname = '';
+  var retVal = [];
+  if (url) {
+    pathname = url.split('?')[0];;
+  } else {
+    pathname = (typeof window !== "undefined")?window.location.pathname:'';
+  }
+  pathname = _.compact(pathname.split('/'));
+  if (matchingString && !_.isEmpty(pathname)) {
+    _.each(pathname, function(val, i) {
+      if (val.indexOf(matchingString) >= 0) {
+        retVal.push(val);
       }
+    });
+  }
 
-      return retVal;
-    }
+  return retVal;
+}

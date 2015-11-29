@@ -1,2 +1,2 @@
-var qp = require('query-path');
-console.log(qp.qsval('name', 'http://example.com?name=batman'));
+var qp = require('./index');
+console.info(qp.pathByIndex(3));
