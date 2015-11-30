@@ -1,2 +1,3 @@
 var qp = require('./index');
-console.info(qp.pathByIndex(3));
+//test pathByRegex
+console.info(qp.pathByRegex('name','http://example.com/name1/name2'));

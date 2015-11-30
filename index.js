@@ -1,5 +1,20 @@
 'use strict';
-var _ = require('lodash');
+
+var compact = function(array) {
+  var index = -1,
+    length = array ? array.length : 0,
+    resIndex = -1,
+    result = [];
+
+  while (++index < length) {
+    var value = array[index];
+    if (value) {
+      result[++resIndex] = value;
+    }
+  }
+  return result;
+}
+
 exports.queryStringByKey = function(key, url) {
   key = key.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
   var regex = new RegExp("[\\?&]" + key + "=([^&#]*)");
@@ -17,9 +32,9 @@ exports.pathByIndex = function(index, url) {
   if (url) {
     pathname = url;
   } else {
-    pathname = (typeof window !== "undefined")?window.location.pathname:'';
+    pathname = (typeof window !== "undefined") ? window.location.pathname : '';
   }
-  pathname = _.compact(pathname.split('/'));
+  pathname = compact(pathname.split('/'));
   if (index < pathname.length) {
     retVal = pathname[index];
   }
@@ -32,15 +47,16 @@ exports.pathByRegex = function(matchingString, url) {
   if (url) {
     pathname = url.split('?')[0];;
   } else {
-    pathname = (typeof window !== "undefined")?window.location.pathname:'';
+    pathname = (typeof window !== "undefined") ? window.location.pathname : '';
   }
-  pathname = _.compact(pathname.split('/'));
-  if (matchingString && !_.isEmpty(pathname)) {
-    _.each(pathname, function(val, i) {
+  pathname = compact(pathname.split('/'));
+  console.info('pathname', pathname);
+  if (matchingString && pathname.length > 0) {
+    pathname.map(function(val, i) {
       if (val.indexOf(matchingString) >= 0) {
         retVal.push(val);
       }
-    });
+    })
   }
 
   return retVal;
