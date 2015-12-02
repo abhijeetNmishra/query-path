@@ -1,6 +1,6 @@
 'use strict';
 
-var compact = function(array) {
+const compact = function(array) {
   var index = -1,
     length = array ? array.length : 0,
     resIndex = -1,
@@ -15,7 +15,7 @@ var compact = function(array) {
   return result;
 }
 
-exports.queryStringByKey = function(key, url) {
+exports.queryStringByKey = (key, url) => {
   key = key.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
   var regex = new RegExp("[\\?&]" + key + "=([^&#]*)");
   if (url) {
@@ -26,7 +26,7 @@ exports.queryStringByKey = function(key, url) {
   return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-exports.pathByIndex = function(index, url) {
+exports.pathByIndex = (index, url) => {
   var pathname = '';
   var retVal = '';
   if (url) {
@@ -41,7 +41,7 @@ exports.pathByIndex = function(index, url) {
   return retVal;
 }
 
-exports.pathByRegex = function(matchingString, url) {
+exports.pathByRegex = (matchingString, url) => {
   var pathname = '';
   var retVal = [];
   if (url) {
@@ -50,7 +50,6 @@ exports.pathByRegex = function(matchingString, url) {
     pathname = (typeof window !== "undefined") ? window.location.pathname : '';
   }
   pathname = compact(pathname.split('/'));
-  console.info('pathname', pathname);
   if (matchingString && pathname.length > 0) {
     pathname.map(function(val, i) {
       if (val.indexOf(matchingString) >= 0) {
@@ -60,4 +59,15 @@ exports.pathByRegex = function(matchingString, url) {
   }
 
   return retVal;
+}
+
+exports.getQueryStringObj = (url) => {
+  const regex = /[?&]([^=#]+)=([^&#]*)/g;
+  url = (url) ? url : ((typeof window !== "undefined") ? window.location.href : '');
+  let params = {};
+  let match;
+  while (match = regex.exec(url)) {
+    params[match[1]] = match[2];
+  }
+  return params;
 }

@@ -12,7 +12,7 @@
     "node": ">=0.10.0"
   },
   "files": [
-    "index.js"
+    "lib/index.js"
   ],
   "keywords": [
     "browser",
@@ -26,7 +26,13 @@
     "decode"
   ],
   "tonicExampleFilename": "example.js",
-  "dependencies": {
-  },
-  "devDependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "babel": "^6.1.18",
+    "babel-core": "^6.2.1",
+    "babel-preset-es2015": "^6.1.18",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.1",
+    "gulp-uglify": "^1.5.1"
+  }
 }
