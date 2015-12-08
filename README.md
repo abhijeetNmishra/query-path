@@ -24,6 +24,9 @@ console.log(queryPath.pathByIndex(1,'http://exmaple.com/xyz/abc'));
 
 console.log(queryPath.pathByRegex('first'),'http://example.com/firstsecond/secondfirst/thirdsecond');
 //=> ['firstsecond','secondfirst']
+
+console.log(queryPath.getQueryStringObj('first'),'http://example.com/name1/name2?name=joe&last=tribiyani');
+//=> { name: 'joe', last: 'tribiyani' }
 ```
 
 ## API
@@ -36,6 +39,9 @@ parse window.location.pathname for browser url or '/' separated path in provided
 
 ### .pathByRegex(*string*,*string*)
 parse window.location.path for browser url or '/' separated path in provided url and give matching path values as an array for provided regex.
+
+### .getQueryStringObj(*string*)
+parse window.location.path for browser url or queryString in provided url and give object with all values.
 
 ## License
 
